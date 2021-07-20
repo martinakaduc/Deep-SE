@@ -50,34 +50,34 @@ datasetPorru = ['apstud_porru', 'dnn_porru', 'mesos_porru', 'mule_porru', 'nexus
 datasetPorru_pretrain = ['sonatype']
 
 for project, repo in datasetDict_PorruDB.items():
-    print project + ' ' + repo
+    print (project + ' ' + repo)
     cmd = 'python DatatoCSV.py ' + project + ' ' + repo
-    print cmd
+    print (cmd)
     os.system(cmd)
 #
 for repo in datasetPorru_pretrain:
-    print repo
+    print (repo)
     cmd = 'python DatatoCSV.py ' + 'pretrain' + ' ' + repo
-    print cmd
+    print (cmd)
     os.system(cmd)
 #
 for project in datasetPorru:
-    print project
+    print (project)
     cmd = 'python divide_data_sortdate.py ' + project
-    print cmd
+    print (cmd)
     os.system(cmd)
 
 
 for repo in datasetPorru_pretrain:
-    print repo
+    print (repo)
     cmd = 'python preprocess.py ' + repo
-    print cmd
+    print (cmd)
     os.system(cmd)
 
 for project, repo in datasetDict_Porru.items():
-    print project
+    print (project)
     cmd = 'python preprocess_storypoint.py ' + project + ' ' + repo
-    print cmd
+    print (cmd)
     os.system(cmd)
 
 

@@ -17,13 +17,13 @@ log = 'log/' + saving + '.txt'
 max_len = arg['-len']
 
 n_noise = 100
-print 'Loading data...'
+print ('Loading data...')
 train, valid, test = load_data.load(dataset)
 valid = valid[-5000:]
 
 vocab_size = arg['-vocab']
 
-print 'vocab: ', vocab_size
+print ('vocab: ', vocab_size)
 
 ######################################################
 # prepare_lm load data and prepare input, output and then call the prepare_mask function
@@ -32,7 +32,7 @@ train_x, train_y, train_mask = load_data.prepare_lm(train, vocab_size, max_len)
 valid_x, valid_y, valid_mask = load_data.prepare_lm(valid, vocab_size, max_len)
 test_x, test_y, test_mask = load_data.prepare_lm(test, vocab_size, max_len)
 
-print 'Data size: Train: %d, valid: %d, test: %d' % (len(train_x), len(valid_x), len(test_x))
+print ('Data size: Train: %d, valid: %d, test: %d' % (len(train_x), len(valid_x), len(test_x)))
 
 vocab_size += 1
 n_samples, inp_len = train_x.shape
@@ -44,7 +44,7 @@ labels = numpy.zeros((n_samples, inp_len, n_noise + 2), dtype='int64')
 labels[:, :, 0] = train_mask
 labels[:, :, 1] = 1
 
-print 'Building model...'
+print ('Building model...')
 # Build model
 main_inp = Input(shape=(inp_len,), dtype='int64', name='main_inp')
 next_inp = Input(shape=(inp_len,), dtype='int64', name='next_inp')
@@ -65,7 +65,7 @@ nce_out_test = NCETest_seq(input_dim=emb_dim, input_len=inp_len, vocab_size=voca
 
 # Call a model
 model = Model(input=[main_inp, next_inp], output=[nce_out])
-print model.summary()
+print (model.summary())
 
 optimizer = RMSprop(lr=0.01)
 model.compile(optimizer=optimizer, loss=NCE_seq_loss)
@@ -81,7 +81,7 @@ json_string = model.to_json()
 fModel = open('models/' + saving + '.json', 'w')
 fModel.write(json_string)
 
-print 'Training...'
+print ('Training...')
 his = model.fit([train_x, train_y], labels,
           batch_size=50, nb_epoch=100,
           callbacks=[callback])

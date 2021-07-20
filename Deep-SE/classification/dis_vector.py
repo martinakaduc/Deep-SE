@@ -1,6 +1,6 @@
 import prepare_data
 import gzip
-import cPickle
+import _pickle as cPickle
 
 from sklearn.manifold import TSNE
 from numpy import vstack, array
@@ -21,26 +21,26 @@ def filter(word):
 # load embedding vector
 emb_weight = prepare_data.load_weight('lstm2v_' + repo + '_dim' + dim)
 W = emb_weight[1:]
-print 'Size of vector:'
-print W.shape
+print('Size of vector:')
+print(W.shape)
 
 # load dict
 f = gzip.open('../data/' + repo + '.dict.pkl.gz', 'rb')
 wordDict = cPickle.load(f)
 
-print len(wordDict)
+print(len(wordDict))
 i = 1
 for word, ids in sorted(wordDict.items(), key=lambda t: t[1]):
-    print ids
-    print word
+    print(ids)
+    print(word)
     i += 1
     if i > 20:
         break
 
 model = TSNE(n_components=2, random_state=0)
 embed_W = model.fit_transform(W)
-print embed_W
-print embed_W.shape
+print(embed_W)
+print(embed_W.shape)
 
 outputFile = open('embed_weight/' + repo + '.txt', 'w')
 # all
@@ -67,11 +67,11 @@ i = 0
 for word, ids in sorted(wordDict.items(), key=lambda t: t[1]):
     if filter(word):
         wordList_f[word] = ids
-        print ids
-        print i
-        print embed_W[int(ids) - 1][0]
-        print embed_W[int(ids) - 1][1]
-        print '---'
+        print(ids)
+        print(i)
+        print(embed_W[int(ids) - 1][0])
+        print(embed_W[int(ids) - 1][1])
+        print('---')
 
         embed_W_f[i][0] = embed_W[int(ids) - 1][0]
         embed_W_f[i][1] = embed_W[int(ids) - 1][1]

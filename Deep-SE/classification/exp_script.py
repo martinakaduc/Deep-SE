@@ -64,10 +64,10 @@ if mode == 'experiment':
                                     cmd += ' -saving ' + project + '_' + seq + '_' + nnet + '_dim' + dim + \
                                            '_reg' + reg + '_pre' + pretrain + '_pool' + pool
                                     # file name e.g. appceleratorstudio_lstm_highway_dim100_reginphid_prefixed_lm_poolmean.txt
-                                    print cmd
+                                    print(cmd)
                                     os.system(cmd)
 elif mode == 'tunning':
-    print 'tunning using MAE'
+    print('tunning using MAE')
     if model == 'seq':
         for project, repository in datasetDict.items():
             for nnet in nnet_models:
@@ -82,7 +82,7 @@ elif mode == 'tunning':
                                               ' -reg ' + reg + ' -pretrain ' + pretrain + ' -pool ' + pool + ' -hiddenLayer ' + str(
                                             hdl)
                                         cmd += ' -saving tune_' + project + '_dim_' + dim
-                                        print cmd
+                                        print(cmd)
                                         os.system(cmd)
 #
 # if model == 'BoW':

@@ -220,7 +220,7 @@ class PoolingSeq(Layer):
 def create_highway(below_layer, out_dim, hdl=10):
     shared_highway = Highway(activation='relu', init='glorot_normal', transform_bias=-1)
     hidd = below_layer
-    print 'Number of hiddenLayer' + str(hdl)
+    print('Number of hiddenLayer' + str(hdl))
     for i in range(
             hdl):  # it is the number of hidden layers in the highway net, you can change the range(10) to any number you like,as this is a hyper-parameter we need to specify
         hidd = shared_highway(hidd)
@@ -332,7 +332,7 @@ def create_fixed(n_classes, inp_len, emb_dim,
     else:
         drop_rate = 0.0
 
-    seq_layer = seq_dict[seq_model](input_dim=emb_dim, output_dim=emb_dim,
+    seq_layer = LSTM(input_dim=emb_dim, output_dim=emb_dim,
                                     return_sequences=True, dropout_U=drop_rate, dropout_W=drop_rate)
 
     title_hid = seq_layer(title_inp)

@@ -1,0 +1,8 @@
+keras==1.2.2
+theano==0.8.2
+BeautifulSoup4
+numpy
+pandas
+scipy
+scikit-learn
+h5py

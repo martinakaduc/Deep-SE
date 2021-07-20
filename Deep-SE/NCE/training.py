@@ -19,11 +19,11 @@ batch_size = 3000
 n_context = 2
 n_noise = 100
 
-print 'Loading data...'
+print ('Loading data...')
 train, valid, test = load_data.load(dataset)
 
 vocab_size = args['-vocab']
-print 'vocab size: ', vocab_size
+print ('vocab size: ', vocab_size)
 ######################################################
 
 train_x, train_y = load_data.prepare_NCE(train, n_context, vocab_size)
@@ -31,14 +31,14 @@ valid_x, valid_y = load_data.prepare_NCE(valid, n_context, vocab_size)
 valid_x, valid_y = valid_x[:200000], valid_y[:200000]
 test_x, test_y = load_data.prepare_NCE(test, n_context, vocab_size)
 
-print 'Data size: Train: %d, valid: %d, test: %d' % (len(train_x), len(valid_x), len(test_x))
+print ('Data size: Train: %d, valid: %d, test: %d' % (len(train_x), len(valid_x), len(test_x)))
 
 Pn = noise_dist.calc_dist(train, vocab_size)
 
 labels = numpy.zeros((len(train_y), n_noise + 1), dtype='int64')
 labels[:, 0] = 1
 
-print 'Building model...'
+print ('Building model...')
 # Build model
 main_inp = Input(shape=(n_context,), dtype='int64', name='main_inp')
 next_inp = Input(shape=(1,), dtype='int64', name='next_inp')
@@ -55,7 +55,7 @@ nce_out = NCE(input_dim=emb_dim, vocab_size=vocab_size, n_noise=n_noise, Pn=Pn,
 nce_out_test = NCETest(input_dim=emb_dim, vocab_size=vocab_size)([emb_context, next_inp])
 
 model = Model(input=[main_inp, next_inp], output=nce_out)
-print model.summary()
+print (model.summary())
 
 json_string = model.to_json()
 fModel = open('models/' + saving + '.json', 'w')
@@ -72,7 +72,7 @@ testModel.compile(optimizer=optimizer, loss=NCE_loss_test)
 callback = NCETestCallback(data=[valid_x, valid_y], testModel= testModel,
                            fResult='log/' + saving + '.txt', fParams='bestModels/' + saving + '.hdf5')
 
-print 'Training...'
+print ('Training...')
 his = model.fit([train_x, train_y], labels,
           batch_size=batch_size, nb_epoch=100,
           callbacks=[callback])
