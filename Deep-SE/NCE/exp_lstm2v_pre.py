@@ -2,7 +2,7 @@ import os
 
 mode = 'pretrain'
 
-dims = ['10', '50', '100', '200']
+dims = ['50']
 dataPres = ['moodle', 'apache', 'appcelerator', 'duraspace', 'jira', 'lsstcorp', 'mulesoft', 'spring',
             'talendforge']  # pretrained data
 
@@ -15,5 +15,5 @@ if mode == 'pretrain':
         for dataPre in dataPres:
             command = flag + 'python lstm2vec_pretrain.py -data ' + dataPre + \
                       ' -saving lstm2v_' + dataPre + '_dim' + dim + ' -vocab ' + vocab + ' -dim ' + dim
-            print command
+            print (command)
             os.system(command)

@@ -14,7 +14,7 @@ if model == 'lm':
         command = 'python training_lm.py -data ' + data + \
                   ' -saving NCElm_' + data + '_dim' + dim + \
                   ' -vocab ' + vocab + ' -dim ' + dim + ' -len ' + maxlen
-        print command
+        print (command)
         os.system(command)
 
 elif model == 'bi':
@@ -22,7 +22,7 @@ elif model == 'bi':
         command = 'python training.py -data ' + data + \
                   ' -saving NCE_' + data + '_dim' + dim + \
                   ' -vocab ' + vocab + ' -dim ' + dim
-        print command
+        print (command)
         os.system(command)
 
 else:
@@ -30,5 +30,5 @@ else:
         command = 'python doc2vec.py -data ' + data + \
                   ' -saving doc2vec_' + data + '_dim' + dim + \
                   ' -vocab ' + vocab + ' -dim ' + dim
-        print command
+        print (command)
         os.system(command)

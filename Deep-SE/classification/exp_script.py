@@ -6,30 +6,30 @@ import sys
 mode = 'experiment'  # 'experiment'
 
 model = 'seq'
-dims = ['10', '50', '100', '200']  # , '15', '20']
+dims = ['50']  # , '15', '20']
 # dims = ['200']  # , '15', '20']
 # repository = 'apache'
 # projects = ['usergrid'] #
 
 
 datasetDict = {
-    'mesos': 'apache',
-    'usergrid': 'apache',
-     'appceleratorstudio': 'appcelerator',
-    'aptanastudio': 'appcelerator',
+    # 'mesos': 'apache',
+    # 'usergrid': 'apache',
+    # 'appceleratorstudio': 'appcelerator',
+    # 'aptanastudio': 'appcelerator',
     'titanium': 'appcelerator',
-    'duracloud': 'duraspace',
-    'bamboo': 'jira',
-    'clover': 'jira',
-    'jirasoftware': 'jira',
-    'crucible': 'jira',
-    'moodle': 'moodle',
-    'datamanagement': 'lsstcorp',
-    'mule': 'mulesoft',
-    'mulestudio': 'mulesoft',
-    'springxd': 'spring',
-    'talenddataquality': 'talendforge',
-    'talendesb': 'talendforge'
+    # 'duracloud': 'duraspace',
+    # 'bamboo': 'jira',
+    # 'clover': 'jira',
+    # 'jirasoftware': 'jira',
+    # 'crucible': 'jira',
+    # 'moodle': 'moodle',
+    # 'datamanagement': 'lsstcorp',
+    # 'mule': 'mulesoft',
+    # 'mulestudio': 'mulesoft',
+    # 'springxd': 'spring',
+    # 'talenddataquality': 'talendforge',
+    # 'talendesb': 'talendforge'
 }
 
 nnet_models = ['highway']  # ['dense', 'highway']
@@ -45,7 +45,7 @@ maxlen = '100'
 
 # tunning parameter
 # hdls = [2, 3, 5, 10, 20, 50, 100, 200]
-hdls = [2, 3, 5, 10, 20, 30, 40, 50, 60, 80, 100, 200]
+hdls = [10]
 # hdls = [80,100,200]
 # Running script:
 

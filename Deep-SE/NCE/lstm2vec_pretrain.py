@@ -9,6 +9,7 @@ import _pickle as cPickle
 import load_data
 import noise_dist
 from NCE import *
+import sys
 
 arg = load_data.arg_passing(sys.argv)
 dataset = '../data/' + arg['-data'] + '_pretrain.pkl.gz'
@@ -23,7 +24,7 @@ train, valid, test = load_data.load(dataset)
 valid = valid[-5000:]
 vocab_size = arg['-vocab']
 
-print 'vocab: ', vocab_size
+print ('vocab: ', vocab_size)
 
 ######################################################
 # prepare_lm load data and prepare input, output and then call the prepare_mask function
