@@ -2,6 +2,7 @@ from keras.layers import *
 from keras.models import Model
 from keras.constraints import *
 from keras.regularizers import *
+from keras.objectives import *
 import gzip
 import numpy
 import _pickle as cPickle
@@ -84,5 +85,5 @@ fModel.write(json_string)
 
 print ('Training...')
 his = model.fit([train_x, train_y], labels,
-          batch_size=50, nb_epoch=20,
-          callbacks=[callback])
+          batch_size=50, nb_epoch=100,
+          callbacks=[callback, NanStopping()])

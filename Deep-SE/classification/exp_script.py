@@ -17,7 +17,7 @@ datasetDict = {
     # 'usergrid': 'apache',
     # 'appceleratorstudio': 'appcelerator',
     # 'aptanastudio': 'appcelerator',
-    'titanium': 'appcelerator',
+    # 'titanium': 'appcelerator',
     # 'duracloud': 'duraspace',
     # 'bamboo': 'jira',
     # 'clover': 'jira',
@@ -30,6 +30,7 @@ datasetDict = {
     # 'springxd': 'spring',
     # 'talenddataquality': 'talendforge',
     # 'talendesb': 'talendforge'
+    'kanoo': 'tpssoft'
 }
 
 nnet_models = ['highway']  # ['dense', 'highway']

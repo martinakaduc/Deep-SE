@@ -3,9 +3,9 @@ import os
 mode = 'pretrain'
 
 dims = ['50']
-dataPres = ['moodle', 'apache', 'appcelerator', 'duraspace', 'jira', 'lsstcorp', 'mulesoft', 'spring',
-            'talendforge']  # pretrained data
-
+# dataPres = ['moodle', 'apache', 'appcelerator', 'duraspace', 'jira', 'lsstcorp', 'mulesoft', 'spring',
+#             'talendforge']  # pretrained data
+dataPres = ['tpssoft']
 vocab = '5000'
 
 flag = ''
