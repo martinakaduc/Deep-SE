@@ -32,7 +32,7 @@ datasetDict = {
     # 'talendesb': 'talendforge'
     'kanoo': 'tpssoft',
     'opus': 'tpssoft',
-    'vk': 'tpssoft
+    'vk': 'tpssoft'
 }
 
 nnet_models = ['highway']  # ['dense', 'highway']
