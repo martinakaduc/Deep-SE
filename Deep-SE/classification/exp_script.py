@@ -30,7 +30,9 @@ datasetDict = {
     # 'springxd': 'spring',
     # 'talenddataquality': 'talendforge',
     # 'talendesb': 'talendforge'
-    'kanoo': 'tpssoft'
+    'kanoo': 'tpssoft',
+    'opus': 'tpssoft',
+    'vk': 'tpssoft
 }
 
 nnet_models = ['highway']  # ['dense', 'highway']
