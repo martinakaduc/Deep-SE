@@ -19,7 +19,9 @@ datasetDict = {
     # , 'springxd': 'spring'
     # , 'talenddataquality': 'talendforge'
     # , 'talendesb': 'talendforge'
-    'kanoo': 'tpssoft'
+    'kanoo': 'tpssoft',
+    'opus': 'tpssoft',
+    'vk': 'tpssoft'
 }
 
 # dataPres = ['apache', 'appcelerator', 'duraspace', 'jira', 'moodle', 'lsstcorp', 'mulesoft', 'spring', 'talendforge']

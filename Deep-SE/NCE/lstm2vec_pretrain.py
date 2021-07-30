@@ -2,7 +2,6 @@ from keras.layers import *
 from keras.models import Model
 from keras.constraints import *
 from keras.regularizers import *
-from keras.objectives import *
 import gzip
 import numpy
 import _pickle as cPickle
@@ -82,6 +81,15 @@ callback = NCETestCallback(data=[valid_x, valid_y, valid_mask], testModel= testM
 json_string = model.to_json()
 fModel = open('models/' + saving + '.json', 'w')
 fModel.write(json_string)
+
+class NanStopping(Callback):
+    def __init__(self):
+        super(NanStopping, self).__init__()
+
+    def on_epoch_end(self, epoch, logs={}):
+        for k in logs.values():
+            if numpy.isnan(k):
+                self.model.stop_training = True
 
 print ('Training...')
 his = model.fit([train_x, train_y], labels,
