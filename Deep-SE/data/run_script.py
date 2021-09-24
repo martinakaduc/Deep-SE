@@ -3,25 +3,29 @@ import os
 # run preprocess_storypoint.py
 
 datasetDict = {
-      'mesos': 'apache'
-    , 'usergrid': 'apache'
-    , 'appceleratorstudio': 'appcelerator'
-    , 'aptanastudio': 'appcelerator'
-    , 'titanium': 'appcelerator'
-    , 'duracloud': 'duraspace'
-    , 'bamboo': 'jira'
-    , 'clover': 'jira'
-    , 'jirasoftware': 'jira'
-    , 'moodle': 'moodle'
-    , 'datamanagement': 'lsstcorp'
-    , 'mule': 'mulesoft'
-    , 'mulestudio': 'mulesoft'
-    , 'springxd': 'spring'
-    , 'talenddataquality': 'talendforge'
-    , 'talendesb': 'talendforge'
+    #   'mesos': 'apache'
+    # , 'usergrid': 'apache'
+    # , 'appceleratorstudio': 'appcelerator'
+    # , 'aptanastudio': 'appcelerator'
+    # , 'titanium': 'appcelerator'
+    # , 'duracloud': 'duraspace'
+    # , 'bamboo': 'jira'
+    # , 'clover': 'jira'
+    # , 'jirasoftware': 'jira'
+    # , 'moodle': 'moodle'
+    # , 'datamanagement': 'lsstcorp'
+    # , 'mule': 'mulesoft'
+    # , 'mulestudio': 'mulesoft'
+    # , 'springxd': 'spring'
+    # , 'talenddataquality': 'talendforge'
+    # , 'talendesb': 'talendforge'
+    'kanoo': 'tpssoft',
+    'opus': 'tpssoft',
+    'vk': 'tpssoft'
 }
 
-dataPres = ['apache', 'appcelerator', 'duraspace', 'jira', 'moodle', 'lsstcorp', 'mulesoft', 'spring', 'talendforge']
+# dataPres = ['apache', 'appcelerator', 'duraspace', 'jira', 'moodle', 'lsstcorp', 'mulesoft', 'spring', 'talendforge']
+dataPres = ['tpssoft']
 
 datasetDict_PorruDB = {
       'apstud': 'porru_dataset'
@@ -67,4 +71,3 @@ for project, repo in datasetDict.items():
     cmd = 'python preprocess_storypoint.py ' + project + ' ' + repo
     print (cmd)
     os.system(cmd)
-

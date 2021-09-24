@@ -3,12 +3,13 @@ from keras.models import load_model, model_from_json
 import tensorflow as tf
 from create_model import PoolingSeq
 import os
+import sys
 
 K.set_learning_phase(0)
 custom = {'PoolingSeq': PoolingSeq}
 
 inputs = os.listdir("bestModels")
-inputs = list(filter(lambda x: x[-5:] == ".hdf5" and "dim50" in x and "titanium" in x, inputs))
+inputs = list(filter(lambda x: x[-5:] == ".hdf5" and "dim50" in x and sys.argv[1] in x, inputs))
 inputs = [x[:-5] for x in inputs]
 
 def freeze_session(session, keep_var_names=None, output_names=None, clear_devices=True):

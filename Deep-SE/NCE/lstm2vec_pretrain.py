@@ -82,7 +82,16 @@ json_string = model.to_json()
 fModel = open('models/' + saving + '.json', 'w')
 fModel.write(json_string)
 
+class NanStopping(Callback):
+    def __init__(self):
+        super(NanStopping, self).__init__()
+
+    def on_epoch_end(self, epoch, logs={}):
+        for k in logs.values():
+            if numpy.isnan(k):
+                self.model.stop_training = True
+
 print ('Training...')
 his = model.fit([train_x, train_y], labels,
-          batch_size=50, nb_epoch=20,
-          callbacks=[callback])
+          batch_size=50, nb_epoch=100,
+          callbacks=[callback, NanStopping()])
